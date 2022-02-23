@@ -1,29 +1,25 @@
 
 public class Triangulo_CM extends FiguraGeometrica_CM {
 	private double lado1;
-	private double b;
-	private double c;
+	private double lado2;
+	private double lado3;
 	
 	public Triangulo_CM(String tipoFigura, double lado1, double lado2, double lado3) {
 		super(tipoFigura);
-		lado1 = lado1;
-		b = lado2;
-		c = lado3;
+		this.lado1 = lado1;
+		this.lado2 = lado2;
+		this.lado3 = lado3;
 	}
 
 	@Override
 	public double perimetro() {
-		return lado1 + b + c;
+		return lado1 + lado2 + lado3;
 	}
 
 	@Override
 	public double area() { //Utiliza la formula de Her�n
 		double sp;
-		sp = this.semiPerimetro();
-		return Math.sqrt(sp * (sp-lado1) * (sp-b) * (sp-c));
-	}
-	
-	public double semiPerimetro() {
-		return this.perimetro() / 2;
+		sp = this.perimetro() / 2;
+		return Math.sqrt(sp * (sp-lado1) * (sp-lado2) * (sp-lado3));
 	}
 }
